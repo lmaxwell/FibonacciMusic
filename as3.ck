@@ -62,8 +62,11 @@ for (0=>int i;i<5;i++)
 	0.6=>stereo[i].gain;
 }
 
-[48,50,52,53,55,57,58,60,62] @=> int D_Dorian[]; //dorian scale
+//[48,50,52,53,55,57,58,60,62] @=> int scale[]; //dorian scale
 //exit;
+Scale scale;
+scale.set(48,"dorian");
+
 
 0 => int beat;
 0 => int i;
@@ -76,13 +79,13 @@ while(beat<112)
 	<<<k>>>;
 	if(beat %120 <72) //section 1
 	{
-		D_Dorian[k] + Math.random2(-1,1)*12=> Std.mtof => sin.freq;
-		D_Dorian[k] + Math.random2(-2,-1)*12=> Std.mtof => bass.freq;
+		scale.note[k] + Math.random2(-1,1)*12=> Std.mtof => sin.freq;
+		scale.note[k] + Math.random2(-2,-1)*12=> Std.mtof => bass.freq;
 	}
 	if(beat %120 >= 72) //section 2
 	{
-		D_Dorian[k] + Math.random2(1,2)*12=> Std.mtof => sin.freq;
-		D_Dorian[k] - 12=> Std.mtof => bass.freq;
+		scale.note[k] + Math.random2(1,2)*12=> Std.mtof => sin.freq;
+		scale.note[k] - 12=> Std.mtof => bass.freq;
 		0=>hihat.pos; 	   
 	    Math.random2f(-1,1) => hihatPan.pan;
 
