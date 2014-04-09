@@ -65,7 +65,8 @@ for (0=>int i;i<5;i++)
 //[48,50,52,53,55,57,58,60,62] @=> int scale[]; //dorian scale
 //exit;
 Scale scale;
-scale.set(48,"dorian");
+<<<me.arg(0)>>>;
+scale.set(48,me.arg(0));
 
 
 0 => int beat;
@@ -75,7 +76,7 @@ while(beat<112)
 {
 
 	0=>bass.gain;
-	(i + j)%7 => int k; //fibonacci sequence
+	(i + j)%scale.note.cap() => int k; //fibonacci sequence
 	<<<k>>>;
 	if(beat %120 <72) //section 1
 	{
