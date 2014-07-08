@@ -1,2 +1,3 @@
 Machine.add(me.dir() + "/Scale.ck");
-Machine.add(me.dir() + "/as3.ck:"+me.arg(0));
+Machine.add(me.dir() + "/Fibonacci.ck");
+Machine.add(me.dir() + "/compose.ck");
