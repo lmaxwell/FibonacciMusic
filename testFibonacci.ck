@@ -3,6 +3,6 @@ fibonacci.init();
 
 while(1)
 {
-	<<<fibonacci.genNext()>>>;	
+	<<<fibonacci.genNext(8)>>>;	
 	1::second=>now;
 }
