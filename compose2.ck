@@ -17,10 +17,13 @@ Scale scale;
 fibonacci.init();
 scale.set(48,"lydian");
 
+float oldfreq,newfreq;
 spork ~ tunepan();
 while(1)
 {
-	scale.note[fibonacci.genNext(scale.note.cap())]+Math.random2(2,3)*12=>Std.mtof=>pad.freq;
+	pad.freq()=>oldfreq;
+	scale.note[fibonacci.genNext(scale.note.cap())]+Math.random2(2,3)*12=>Std.mtof=>newfreq;
+	spork ~slide(oldfreq,newfreq);
 	1.0=>pad.noteOn;
 
 	pulse=>now;
@@ -28,6 +31,16 @@ while(1)
 	1.0=>pad.noteOff;
 	pulse*2=>now;
 	
+}
+
+fun void slide(float old,float _new)
+{
+	    now=>time mark;
+		while(now<mark+pulse)
+		{
+			pad.freq()+(_new-old)/5000.0=>pad.freq;
+			pulse/5000.0=>now;
+		}
 }
 
 fun void tunepan()
