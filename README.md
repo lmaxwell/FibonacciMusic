@@ -1,5 +1,3 @@
-#
+Basic idea is  using Fibonacci scale to generate music in different ways
 
 
-##run 
-	chuck run.ck
