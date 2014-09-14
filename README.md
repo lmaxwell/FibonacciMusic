@@ -1,3 +1,3 @@
-Basic idea is  using Fibonacci scale to generate music in different ways
+Basic idea is  using Fibonacci sequence to generate music in different ways
 
 
